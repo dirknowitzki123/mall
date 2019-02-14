@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: chengxin-insurance-consumer
+
+server:
+  port: 9092
+
+chengxin:
+  service:
+    version: 1.0.2
+dubbo:
+  application:
+    id: chengxin-insurance-consumer-id
+    name: chengxin-insurance-consumer-name
+  registry:
+    protocol: zookeeper
+#    address: 127.0.0.1:2181
+    address: 47.106.219.95:2181
+    id: chengxin-registry-2
+  consumer:
+    check: false
+
+management:
+  endpoint:
+    dubbo-configs:
+      enabled: true
+    dubbo:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-references:
+      enabled: true
+
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+  endpoints:
+    web:
+      exposure:
+        include: '*'

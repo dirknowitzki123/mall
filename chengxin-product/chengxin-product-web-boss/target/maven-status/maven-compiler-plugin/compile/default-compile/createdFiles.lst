@@ -1,0 +1,10 @@
+com\kingyon\chengxin\product\web\controller\OmOrderController.class
+com\kingyon\chengxin\product\web\controller\SysCodeInfoController.class
+com\kingyon\chengxin\SwaggerConfig.class
+com\kingyon\chengxin\product\web\controller\PdProductInfoController.class
+com\kingyon\chengxin\product\web\controller\UmUserAccountController.class
+com\kingyon\chengxin\product\web\controller\OmOrderEvaluateController.class
+com\kingyon\chengxin\product\web\controller\PdProductDocumentController.class
+com\kingyon\chengxin\WebBossApplication.class
+com\kingyon\chengxin\product\web\controller\FileuploadController.class
+com\kingyon\chengxin\product\web\controller\OmOrderDetailsController.class

@@ -1,0 +1,10 @@
+com\kingyon\chengxin\product\service\OmOrderServiceImpl.class
+com\kingyon\chengxin\product\service\SysCodeInfoServiceImpl.class
+com\kingyon\chengxin\product\service\PayCenterServiceImpl.class
+com\kingyon\chengxin\product\service\PdProductInfoServiceImpl.class
+com\kingyon\chengxin\product\schedule\OrderCancelScheduledTask.class
+com\kingyon\chengxin\product\service\OmOrderEvaluateServiceImpl.class
+com\kingyon\chengxin\product\schedule\OrderTaskService.class
+com\kingyon\chengxin\product\service\OmOrderDetailsServiceImpl.class
+com\kingyon\chengxin\product\service\PdProductDocumentServiceImpl.class
+com\kingyon\chengxin\product\service\UmUserAccountServiceImpl.class

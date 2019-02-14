@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingyon.chengxin.product.mapper.CmSupplierDictionariesMapper">
+  <resultMap id="BaseResultMap" type="com.kingyon.chengxin.product.modal.CmSupplierDictionaries">
+
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="operator_time" jdbcType="TIMESTAMP" property="operatorTime" />
+    <result column="operator" jdbcType="BIGINT" property="operator" />
+  </resultMap>
+  <sql id="Base_Column_List">
+
+    id, supplier_name, description, remark, create_time, deleted, operator_time, operator
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+
+    select 
+    <include refid="Base_Column_List" />
+    from cm_supplier_dictionaries
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+
+    delete from cm_supplier_dictionaries
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kingyon.chengxin.product.modal.CmSupplierDictionaries">
+
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into cm_supplier_dictionaries (id, supplier_name, description, 
+      remark, create_time, deleted, 
+      operator_time, operator)
+    values (#{id,jdbcType=BIGINT}, #{supplierName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{operatorTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kingyon.chengxin.product.modal.CmSupplierDictionaries">
+
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into cm_supplier_dictionaries
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="supplierName != null">
+        supplier_name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="operatorTime != null">
+        operator_time,
+      </if>
+      <if test="operator != null">
+        operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="supplierName != null">
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="operatorTime != null">
+        #{operatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kingyon.chengxin.product.modal.CmSupplierDictionaries">
+
+    update cm_supplier_dictionaries
+    <set>
+      <if test="supplierName != null">
+        supplier_name = #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="operatorTime != null">
+        operator_time = #{operatorTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        operator = #{operator,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kingyon.chengxin.product.modal.CmSupplierDictionaries">
+
+    update cm_supplier_dictionaries
+    set supplier_name = #{supplierName,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      operator_time = #{operatorTime,jdbcType=TIMESTAMP},
+      operator = #{operator,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="getOneByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from cm_supplier_dictionaries
+    where  supplier_name = #{name,jdbcType=VARCHAR}
+  </select>
+
+
+</mapper>

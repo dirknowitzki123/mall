@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kingyon.chengxin.product</groupId>
+    <artifactId>chengxin-product</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <modules>
+        <module>chengxin-product-api</module>
+        <module>chengxin-product-services</module>
+        <module>chengxin-product-web</module>
+        <module>chengxin-product-web-boss</module>
+    </modules>
+
+
+    <parent>
+        <groupId>com.kingyon.chengxin.framework</groupId>
+        <artifactId>chengxin-framework-starter</artifactId>
+        <version>1.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <artifactId>chengxin-framework-core</artifactId>
+            <groupId>com.kingyon.chengxin.framework</groupId>
+            <version>${chengxin.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+    </dependencies>
+
+
+</project>

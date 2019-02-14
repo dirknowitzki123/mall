@@ -1,0 +1,3 @@
+com\kingyon\chengxin\framework\dto\BaseDto.class
+com\kingyon\chengxin\framework\api\BaseService.class
+com\kingyon\chengxin\framework\dto\BaseQuery.class

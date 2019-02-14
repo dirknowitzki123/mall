@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingyon.chengxin.insurance.mapper.QxOrderNotifyMapper">
+
+  <resultMap id="BaseResultMap" type="com.kingyon.chengxin.insurance.modal.QxOrderNotify">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="partner_id" jdbcType="INTEGER" property="partnerId" />
+    <result column="accid" jdbcType="BIGINT" property="accid" />
+    <result column="notify_type" jdbcType="INTEGER" property="notifyType" />
+    <result column="case_code" jdbcType="VARCHAR" property="caseCode" />
+    <result column="insure_num" jdbcType="VARCHAR" property="insureNum" />
+    <result column="online_payment_id" jdbcType="CHAR" property="onlinePaymentId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="pay_time" jdbcType="CHAR" property="payTime" />
+    <result column="state" jdbcType="BIT" property="state" />
+    <result column="fail_msg" jdbcType="VARCHAR" property="failMsg" />
+    <result column="new_insure_num" jdbcType="VARCHAR" property="newInsureNum" />
+    <result column="cancel_insurants" jdbcType="VARCHAR" property="cancelInsurants" />
+    <result column="cancel_msg" jdbcType="VARCHAR" property="cancelMsg" />
+    <result column="other_info" jdbcType="VARCHAR" property="otherInfo" />
+    <result column="deleted" jdbcType="TINYINT" property="deleted" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    id, partner_id, accid, notify_type, case_code, insure_num, online_payment_id, price, 
+    pay_time, state, fail_msg, new_insure_num, cancel_insurants, cancel_msg, other_info, 
+    deleted, modify_time, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from qx_order_notify
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from qx_order_notify
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kingyon.chengxin.insurance.modal.QxOrderNotify">
+    insert into qx_order_notify (id, partner_id, accid, 
+      notify_type, case_code, insure_num, 
+      online_payment_id, price, pay_time, 
+      state, fail_msg, new_insure_num, 
+      cancel_insurants, cancel_msg, other_info, 
+      deleted, modify_time, create_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{partnerId,jdbcType=INTEGER}, #{accid,jdbcType=BIGINT}, 
+      #{notifyType,jdbcType=INTEGER}, #{caseCode,jdbcType=VARCHAR}, #{insureNum,jdbcType=VARCHAR},
+      #{onlinePaymentId,jdbcType=CHAR}, #{price,jdbcType=DECIMAL}, #{payTime,jdbcType=CHAR}, 
+      #{state,jdbcType=BIT}, #{failMsg,jdbcType=VARCHAR}, #{newInsureNum,jdbcType=VARCHAR}, 
+      #{cancelInsurants,jdbcType=VARCHAR}, #{cancelMsg,jdbcType=VARCHAR}, #{otherInfo,jdbcType=VARCHAR}, 
+      #{deleted,jdbcType=TINYINT}, #{modifyTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kingyon.chengxin.insurance.modal.QxOrderNotify">
+    insert into qx_order_notify
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="accid != null">
+        accid,
+      </if>
+      <if test="notifyType != null">
+        notify_type,
+      </if>
+      <if test="caseCode != null">
+        case_code,
+      </if>
+      <if test="insureNum != null">
+        insure_num,
+      </if>
+      <if test="onlinePaymentId != null">
+        online_payment_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="failMsg != null">
+        fail_msg,
+      </if>
+      <if test="newInsureNum != null">
+        new_insure_num,
+      </if>
+      <if test="cancelInsurants != null">
+        cancel_insurants,
+      </if>
+      <if test="cancelMsg != null">
+        cancel_msg,
+      </if>
+      <if test="otherInfo != null">
+        other_info,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="accid != null">
+        #{accid,jdbcType=BIGINT},
+      </if>
+      <if test="notifyType != null">
+        #{notifyType,jdbcType=INTEGER},
+      </if>
+      <if test="caseCode != null">
+        #{caseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureNum != null">
+        #{insureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="onlinePaymentId != null">
+        #{onlinePaymentId,jdbcType=CHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=CHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=BIT},
+      </if>
+      <if test="failMsg != null">
+        #{failMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="newInsureNum != null">
+        #{newInsureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelInsurants != null">
+        #{cancelInsurants,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelMsg != null">
+        #{cancelMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="otherInfo != null">
+        #{otherInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kingyon.chengxin.insurance.modal.QxOrderNotify">
+    update qx_order_notify
+    <set>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=INTEGER},
+      </if>
+      <if test="accid != null">
+        accid = #{accid,jdbcType=BIGINT},
+      </if>
+      <if test="notifyType != null">
+        notify_type = #{notifyType,jdbcType=INTEGER},
+      </if>
+      <if test="caseCode != null">
+        case_code = #{caseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insureNum != null">
+        insure_num = #{insureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="onlinePaymentId != null">
+        online_payment_id = #{onlinePaymentId,jdbcType=CHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=CHAR},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=BIT},
+      </if>
+      <if test="failMsg != null">
+        fail_msg = #{failMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="newInsureNum != null">
+        new_insure_num = #{newInsureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelInsurants != null">
+        cancel_insurants = #{cancelInsurants,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelMsg != null">
+        cancel_msg = #{cancelMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="otherInfo != null">
+        other_info = #{otherInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kingyon.chengxin.insurance.modal.QxOrderNotify">
+    update qx_order_notify
+    set partner_id = #{partnerId,jdbcType=INTEGER},
+      accid = #{accid,jdbcType=BIGINT},
+      notify_type = #{notifyType,jdbcType=INTEGER},
+      case_code = #{caseCode,jdbcType=VARCHAR},
+      insure_num = #{insureNum,jdbcType=VARCHAR},
+      online_payment_id = #{onlinePaymentId,jdbcType=CHAR},
+      price = #{price,jdbcType=DECIMAL},
+      pay_time = #{payTime,jdbcType=CHAR},
+      state = #{state,jdbcType=BIT},
+      fail_msg = #{failMsg,jdbcType=VARCHAR},
+      new_insure_num = #{newInsureNum,jdbcType=VARCHAR},
+      cancel_insurants = #{cancelInsurants,jdbcType=VARCHAR},
+      cancel_msg = #{cancelMsg,jdbcType=VARCHAR},
+      other_info = #{otherInfo,jdbcType=VARCHAR},
+      deleted = #{deleted,jdbcType=TINYINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+</mapper>

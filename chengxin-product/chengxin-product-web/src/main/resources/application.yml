@@ -1,0 +1,86 @@
+spring:
+  application:
+    name: chengxin-insurance-consumer
+    ######Redis######
+
+  redis:
+    #连接超时时间（毫秒）
+    timeout: 3000
+    jedis:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 100
+        #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        #连接池中的最大空闲连接
+        max-idle: 8
+        #连接池中的最小空闲连接
+        min-idle: 1
+    #redis哨兵模式配置（上面的单节点不生效了）
+    sentinel:
+       master: mymaster
+       nodes: 172.16.30.91:26379,172.16.30.91:26380
+
+
+server:
+  port: 8081
+
+chengxin:
+  service:
+    version: 1.0.2
+dubbo:
+  application:
+    id: chengxin-insurance-consumer-id
+    name: chengxin-insurance-consumer-name
+  registry:
+    protocol: zookeeper
+#    address: 127.0.0.1:2181
+    address: 47.106.184.234:2181
+    id: chengxin-registry-dev
+  consumer:
+    check: false
+
+management:
+  endpoint:
+    dubbo-configs:
+      enabled: true
+    dubbo:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-references:
+      enabled: true
+
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+
+apps:
+  common:
+    isAuth: false   #true 开启登录认证
+    attachment:
+       url: http://127.0.0.1:82/chengxin
+       path: D:/software/nginx/html/chengxin
+    #微信相关配置
+    weixin:
+       key: uRhofWR70WHCQaRgUiKDqu9wNm2PnHgN
+       appSecre: 120107db5a21012a9aacfe5c6ba1fae3
+       appid: wxa511529026d09d47
+#       appid: wx5f617ee8a0f6f3d2
+       mchid: 1509000941
+       certlocalpath: D:/cert/apiclient_cert.p12
+       certpassword: 1509000941
+       notifyUrl: http://localhost:8081/api/paymoney/weixinNotifyUrl
+       addressIp: 127.0.0.1

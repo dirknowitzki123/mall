@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingyon.chengxin.insurance.mapper.AcActivityOrderMapper">
+    <resultMap id="BaseResultMap" type="com.kingyon.chengxin.insurance.modal.AcActivityOrder">
+
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="product_id" jdbcType="VARCHAR" property="productId" />
+        <result column="bargain_num" jdbcType="VARCHAR" property="bargainNum" />
+        <result column="market_price" jdbcType="INTEGER" property="marketPrice" />
+        <result column="price" jdbcType="INTEGER" property="price" />
+        <result column="current_price" jdbcType="INTEGER" property="currentPrice" />
+        <result column="product_name" jdbcType="VARCHAR" property="productName" />
+        <result column="product_sub_name" jdbcType="VARCHAR" property="productSubName" />
+        <result column="open_id" jdbcType="VARCHAR" property="openId" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+        <result column="share_code" jdbcType="VARCHAR" property="shareCode" />
+        <result column="ac_code" jdbcType="VARCHAR" property="acCode" />
+        <result column="insure_num" jdbcType="VARCHAR" property="insureNum" />
+        <result column="count" jdbcType="INTEGER" property="count" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+        <result column="deleted" jdbcType="TINYINT" property="deleted" />
+    </resultMap>
+    <sql id="Base_Column_List">
+
+    id, product_id, bargain_num, market_price, price, current_price, product_name, product_sub_name,
+    open_id, status, share_code, ac_code, insure_num, count, create_time, modify_time,
+    deleted
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+
+        select
+        <include refid="Base_Column_List" />
+        from ac_activity_order
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+
+    delete from ac_activity_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.kingyon.chengxin.insurance.modal.AcActivityOrder">
+
+    insert into ac_activity_order (id, product_id, bargain_num,
+      market_price, price, current_price,
+      product_name, product_sub_name, open_id,
+      status, share_code, ac_code,
+      insure_num, count, create_time,
+      modify_time, deleted)
+    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=VARCHAR}, #{bargainNum,jdbcType=VARCHAR},
+      #{marketPrice,jdbcType=INTEGER}, #{price,jdbcType=INTEGER}, #{currentPrice,jdbcType=INTEGER},
+      #{productName,jdbcType=VARCHAR}, #{productSubName,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR},
+      #{status,jdbcType=TINYINT}, #{shareCode,jdbcType=VARCHAR}, #{acCode,jdbcType=VARCHAR},
+      #{insureNum,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+      #{modifyTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=TINYINT})
+  </insert>
+    <insert id="insertSelective" parameterType="com.kingyon.chengxin.insurance.modal.AcActivityOrder">
+
+        insert into ac_activity_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="bargainNum != null">
+                bargain_num,
+            </if>
+            <if test="marketPrice != null">
+                market_price,
+            </if>
+            <if test="price != null">
+                price,
+            </if>
+            <if test="currentPrice != null">
+                current_price,
+            </if>
+            <if test="productName != null">
+                product_name,
+            </if>
+            <if test="productSubName != null">
+                product_sub_name,
+            </if>
+            <if test="openId != null">
+                open_id,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="shareCode != null">
+                share_code,
+            </if>
+            <if test="acCode != null">
+                ac_code,
+            </if>
+            <if test="insureNum != null">
+                insure_num,
+            </if>
+            <if test="count != null">
+                count,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="deleted != null">
+                deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="productId != null">
+                #{productId,jdbcType=VARCHAR},
+            </if>
+            <if test="bargainNum != null">
+                #{bargainNum,jdbcType=VARCHAR},
+            </if>
+            <if test="marketPrice != null">
+                #{marketPrice,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=INTEGER},
+            </if>
+            <if test="currentPrice != null">
+                #{currentPrice,jdbcType=INTEGER},
+            </if>
+            <if test="productName != null">
+                #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubName != null">
+                #{productSubName,jdbcType=VARCHAR},
+            </if>
+            <if test="openId != null">
+                #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=TINYINT},
+            </if>
+            <if test="shareCode != null">
+                #{shareCode,jdbcType=VARCHAR},
+            </if>
+            <if test="acCode != null">
+                #{acCode,jdbcType=VARCHAR},
+            </if>
+            <if test="insureNum != null">
+                #{insureNum,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                #{count,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleted != null">
+                #{deleted,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.kingyon.chengxin.insurance.modal.AcActivityOrder">
+
+        update ac_activity_order
+        <set>
+            <if test="productId != null">
+                product_id = #{productId,jdbcType=VARCHAR},
+            </if>
+            <if test="bargainNum != null">
+                bargain_num = #{bargainNum,jdbcType=VARCHAR},
+            </if>
+            <if test="marketPrice != null">
+                market_price = #{marketPrice,jdbcType=INTEGER},
+            </if>
+            <if test="price != null">
+                price = #{price,jdbcType=INTEGER},
+            </if>
+            <if test="currentPrice != null">
+                current_price = #{currentPrice,jdbcType=INTEGER},
+            </if>
+            <if test="productName != null">
+                product_name = #{productName,jdbcType=VARCHAR},
+            </if>
+            <if test="productSubName != null">
+                product_sub_name = #{productSubName,jdbcType=VARCHAR},
+            </if>
+            <if test="openId != null">
+                open_id = #{openId,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=TINYINT},
+            </if>
+            <if test="shareCode != null">
+                share_code = #{shareCode,jdbcType=VARCHAR},
+            </if>
+            <if test="acCode != null">
+                ac_code = #{acCode,jdbcType=VARCHAR},
+            </if>
+            <if test="insureNum != null">
+                insure_num = #{insureNum,jdbcType=VARCHAR},
+            </if>
+            <if test="count != null">
+                count = #{count,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyTime != null">
+                modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted,jdbcType=TINYINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.kingyon.chengxin.insurance.modal.AcActivityOrder">
+
+    update ac_activity_order
+    set product_id = #{productId,jdbcType=VARCHAR},
+      bargain_num = #{bargainNum,jdbcType=VARCHAR},
+      market_price = #{marketPrice,jdbcType=INTEGER},
+      price = #{price,jdbcType=INTEGER},
+      current_price = #{currentPrice,jdbcType=INTEGER},
+      product_name = #{productName,jdbcType=VARCHAR},
+      product_sub_name = #{productSubName,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      share_code = #{shareCode,jdbcType=VARCHAR},
+      ac_code = #{acCode,jdbcType=VARCHAR},
+      insure_num = #{insureNum,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+    <select id="selectByBargainNum" parameterType="java.lang.String" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM ac_activity_order WHERE bargain_num = #{bargainNum}
+    </select>
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kingyon.chengxin.insurance.mapper.CmInsuranceConfigMapper">
+    <resultMap id="BaseResultMap" type="com.kingyon.chengxin.insurance.modal.CmInsuranceConfig">
+
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="insurance_name" jdbcType="VARCHAR" property="insuranceName"/>
+        <result column="insurance_title" jdbcType="VARCHAR" property="insuranceTitle"/>
+        <result column="on_off" jdbcType="BIT" property="onOff"/>
+        <result column="main_image" jdbcType="VARCHAR" property="mainImage"/>
+        <result column="price" jdbcType="DECIMAL" property="price"/>
+        <result column="supplier_id" jdbcType="BIGINT" property="supplierId"/>
+        <result column="putaway" jdbcType="BIT" property="putaway"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="insure_address" jdbcType="VARCHAR" property="insureAddress"/>
+        <result column="coverage" jdbcType="DECIMAL" property="coverage"/>
+        <result column="deductibles" jdbcType="DECIMAL" property="deductibles"/>
+        <result column="indate" jdbcType="INTEGER" property="indate"/>
+        <result column="insurance_indate" jdbcType="INTEGER" property="insuranceIndate"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="operator" jdbcType="BIGINT" property="operator"/>
+        <result column="deleted" jdbcType="BIT" property="deleted"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+
+    id, insurance_name, insurance_title, on_off, main_image, price, supplier_id, putaway, 
+    address, insure_address, coverage, deductibles, indate, insurance_indate, tag, create_time, 
+    modify_time, operator, deleted
+  </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+
+        select
+        <include refid="Base_Column_List"/>
+        from cm_insurance_config
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <sql id="Base_Column">
+
+    ci.id, ci.insurance_name, ci.insurance_title, ci.on_off, ci.main_image, ci.price, ci.supplier_id, ci.putaway,
+    ci.address, ci.insure_address, ci.coverage,ci.deductibles, ci.indate,ci.insurance_indate, ci.tag
+  </sql>
+
+    <select id="selectPutawayByProductId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column"/>
+        from cm_insurance_config ci
+        LEFT JOIN pd_product_info  p on p.detail_id  = ci.id
+        WHERE p.id = #{productId} and p.pro_type =10001 and p.putaway=1;
+  </select>
+
+</mapper>

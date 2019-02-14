@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kingyon.chengxin.insurance.mapper.QxPolicyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.kingyon.chengxin.insurance.modal.QxPolicyInfo" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="deleted" property="deleted" jdbcType="TINYINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="insure_num" property="insureNum" jdbcType="VARCHAR" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="plan_name" property="planName" jdbcType="VARCHAR" />
+    <result column="applicant" property="applicant" jdbcType="VARCHAR" />
+    <result column="insurant" property="insurant" jdbcType="VARCHAR" />
+    <result column="start_date" property="startDate" jdbcType="VARCHAR" />
+    <result column="end_date" property="endDate" jdbcType="VARCHAR" />
+    <result column="policy_num" property="policyNum" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, deleted, create_time, modify_time, insure_num, product_name, plan_name, applicant, 
+    insurant, start_date, end_date, policy_num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from qx_policy_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from qx_policy_info
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.kingyon.chengxin.insurance.modal.QxPolicyInfo" >
+    insert into qx_policy_info (id, deleted, create_time, 
+      modify_time, insure_num, product_name, 
+      plan_name, applicant, insurant, 
+      start_date, end_date, policy_num
+      )
+    values (#{id,jdbcType=BIGINT}, #{deleted,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{insureNum,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR},
+      #{planName,jdbcType=VARCHAR}, #{applicant,jdbcType=VARCHAR}, #{insurant,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, #{policyNum,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.kingyon.chengxin.insurance.modal.QxPolicyInfo" >
+    insert into qx_policy_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="insureNum != null" >
+        insure_num,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="planName != null" >
+        plan_name,
+      </if>
+      <if test="applicant != null" >
+        applicant,
+      </if>
+      <if test="insurant != null" >
+        insurant,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="policyNum != null" >
+        policy_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureNum != null" >
+        #{insureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null" >
+        #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null" >
+        #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="insurant != null" >
+        #{insurant,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNum != null" >
+        #{policyNum,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kingyon.chengxin.insurance.modal.QxPolicyInfo" >
+    update qx_policy_info
+    <set >
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=TINYINT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="insureNum != null" >
+        insure_num = #{insureNum,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="planName != null" >
+        plan_name = #{planName,jdbcType=VARCHAR},
+      </if>
+      <if test="applicant != null" >
+        applicant = #{applicant,jdbcType=VARCHAR},
+      </if>
+      <if test="insurant != null" >
+        insurant = #{insurant,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="policyNum != null" >
+        policy_num = #{policyNum,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kingyon.chengxin.insurance.modal.QxPolicyInfo" >
+    update qx_policy_info
+    set deleted = #{deleted,jdbcType=TINYINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      insure_num = #{insureNum,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      plan_name = #{planName,jdbcType=VARCHAR},
+      applicant = #{applicant,jdbcType=VARCHAR},
+      insurant = #{insurant,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      policy_num = #{policyNum,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
