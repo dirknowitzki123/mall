@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kingyon.chengxin.generator</groupId>
+    <artifactId>chengxin-mybatis-generator</artifactId>
+    <version>1.0</version>
+
+
+    <parent>
+        <groupId>com.kingyon.chengxin.framework</groupId>
+        <artifactId>chengxin-framework-starter</artifactId>
+        <version>1.0</version>
+    </parent>
+
+
+    <dependencies>
+
+        <dependency>
+            <artifactId>chengxin-framework-core</artifactId>
+            <groupId>com.kingyon.chengxin.framework</groupId>
+            <version>${chengxin.framework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.kingyon.chengxin.framework</groupId>
+            <artifactId>chengxin-framework-service</artifactId>
+            <version>${chengxin.framework.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis.generator/mybatis-generator-core -->
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/postgresql/postgresql -->
+
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <!--<version>${mysql.version}</version>-->
+            <version>${mysql.version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
